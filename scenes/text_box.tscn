@@ -3,19 +3,19 @@
 [ext_resource type="Script" uid="uid://ctrxrelco4oph" path="res://scripts/TextBox.cs" id="1_k7ve7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smhyf"]
-bg_color = Color(0.7479411, 0.56247056, 0.29361615, 1)
+bg_color = Color(0.6117647, 0.4117647, 0.12941177, 1)
 border_width_left = 15
 border_width_top = 15
 border_width_right = 15
 border_width_bottom = 15
-border_color = Color(0.5664666, 0.43039358, 0.19599661, 1)
+border_color = Color(0.48, 0.29696, 0.057600003, 1)
 
 [node name="TextBox" type="Node2D" unique_id=1844752775]
 script = ExtResource("1_k7ve7")
 
 [node name="Panel" type="Panel" parent="." unique_id=1901118660]
-offset_top = -250.0
-offset_right = 1820.0
+offset_top = -300.0
+offset_right = 1860.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_smhyf")
 metadata/_edit_group_ = true
 

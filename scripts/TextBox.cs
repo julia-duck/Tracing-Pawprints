@@ -73,8 +73,8 @@ public partial class TextBox : Node2D
 	{
 		await ST("You: Hmm, that's interesting. The grass seems to be shorter on this side.");
 		await ST("Suddenly, you become very still as another memory hits you. It is hazy at first but begins to solidify.");
-		await ST("You are going to the fountain to cool off. You don't expect " + cat + " to be interested, as " + pronoun1 + " hates getting wet, but you bring " + pronoun2 + " along anyways.");
-		await ST(cat + " isn't interested in the water. But " + pronoun1 + " is very interested in the grass beside it.");
+		await ST("You are going to the lake to cool off. You don't expect " + cat + " to be interested, as " + pronoun1 + " hates getting wet, but you bring " + pronoun2 + " along anyways.");
+		await ST(cat + " isn't interested in the water. But " + pronoun1 + " is very interested in the fountain grass beside it.");
 		await ST("You have no idea why, but " + cat + " kept trying to eat the grass.");
 		await ST("You wondered why the grass tasted good to " + cat + ", but you didn't dare try it yourself.");
 	}

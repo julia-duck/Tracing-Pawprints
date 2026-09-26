@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d1afynnpocwwv"]
+
+[ext_resource type="Script" uid="uid://kyns72h121mm" path="res://scripts/TitleScreen.cs" id="1_fgkus"]
+[ext_resource type="PackedScene" uid="uid://d0jj1bb0qe24b" path="res://scenes/camera.tscn" id="2_sa3yf"]
+
+[node name="TitleScreen" type="Node2D" unique_id=1260470973]
+script = ExtResource("1_fgkus")
+
+[node name="StartButton" type="Button" parent="." unique_id=1990208953]
+offset_left = 772.0
+offset_top = 209.0
+offset_right = 1640.0
+offset_bottom = 506.0
+theme_override_font_sizes/font_size = 100
+text = "Start"
+
+[node name="Camera" parent="." unique_id=310866334 instance=ExtResource("2_sa3yf")]
+position = Vector2(960, 540)
+
+[connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]

@@ -7,4 +7,5 @@
 script = ExtResource("1_cvpoc")
 
 [node name="TextBox" parent="." unique_id=1844752775 instance=ExtResource("2_kod1s")]
-position = Vector2(-910, 490)
+visible = false
+position = Vector2(-930, 510)

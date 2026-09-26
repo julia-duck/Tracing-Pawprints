@@ -3,12 +3,15 @@ using System;
 
 public partial class Popup : CanvasLayer
 {
+	[Signal]
+	public delegate void PopupConfirmedEventHandler();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Hide();
 		//AcceptDialog popup = GetNode<CanvasLayer>("/root/Popup").GetNode<AcceptDialog>("AcceptDialog");
 		//popup.Confirmed += OnConfirmed();
-		Show();
+		//Show();
 	}
 	public void OnConfirmed()
 	{
@@ -24,5 +27,6 @@ public partial class Popup : CanvasLayer
 		if (p2T != "") {
 			TextBox.pronoun2 = p2T;
 		}
+		EmitSignal(SignalName.PopupConfirmed);
 	}
 }

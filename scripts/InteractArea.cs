@@ -4,12 +4,13 @@ using System;
 public partial class InteractArea : Node2D
 {
 	[Signal]
-	public delegate void ClickedEventHandler();
+	public delegate void ClickedEventHandler(InteractArea trigger);
 	[Export]
 	public int IconNumber {get; set;} = 0;
 	
 	private static int VerticalIconOffset = 20;
 	private Sprite2D IconShown;
+	private bool Disabled;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -22,12 +23,20 @@ public partial class InteractArea : Node2D
 	{
 	}
 
+	public void SetDisabled(bool disabled)
+	{
+		GetNode<Button>("Button").Disabled = disabled;
+		Disabled = disabled;
+	}
+
 	private void OnMouseEntered()
 	{
-		GD.Print("Hover");
-		IconShown.Position = new Vector2(Position.X, Position.Y - VerticalIconOffset);
-		IconShown.Frame = IconNumber;
-		IconShown.Show();
+		if (!Disabled)
+		{
+			IconShown.Position = new Vector2(Position.X, Position.Y - VerticalIconOffset);
+			IconShown.Frame = IconNumber;
+			IconShown.Show();
+		}
 	}
 
 	private void OnMouseExited()
@@ -37,7 +46,6 @@ public partial class InteractArea : Node2D
 
 	private void OnButtonPressed()
 	{
-		GD.Print("Chicked");
-		EmitSignal(SignalName.Clicked);
+		EmitSignal(SignalName.Clicked, GetNode<InteractArea>(GetPath()));
 	}
 }
