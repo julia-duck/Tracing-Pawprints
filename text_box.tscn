@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://du7xp0cphpll3"]
+
+[ext_resource type="Script" uid="uid://ctrxrelco4oph" path="res://TextBox.cs" id="1_k7ve7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smhyf"]
+bg_color = Color(0.7479411, 0.56247056, 0.29361615, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.5664666, 0.43039358, 0.19599661, 1)
+
+[node name="TextBox" type="Node2D" unique_id=1844752775]
+script = ExtResource("1_k7ve7")
+
+[node name="Panel" type="Panel" parent="." unique_id=1901118660]
+offset_right = 968.0
+offset_bottom = 183.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_smhyf")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=16873878]
+layout_mode = 0
+offset_right = 968.0
+offset_bottom = 182.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer" unique_id=252226282]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+text = "Hello"
+
+[node name="Timer" type="Timer" parent="." unique_id=322316827]
