@@ -7,8 +7,9 @@ public partial class InteractArea : Node2D
 	public delegate void ClickedEventHandler(InteractArea trigger);
 	[Export]
 	public int IconNumber {get; set;} = 0;
+	[Export]
 	
-	private static int VerticalIconOffset = 20;
+	public int VerticalIconOffset {get; set; }= 20;
 	private Sprite2D IconShown;
 	private bool Disabled;
 

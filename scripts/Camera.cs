@@ -10,13 +10,10 @@ public partial class Camera : Camera2D
 
 	private Vector2 Velocity;
 	private int xLimit;
-	private int yLimit;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		//=
-		yLimit = 540;
 		xLimit = 2340;
 		MovementEnabled = true;
 		Velocity = Vector2.Zero;
@@ -30,8 +27,9 @@ public partial class Camera : Camera2D
 			case "Town":
 				xLimit = 2340;
 				break;
-			default:
-				break;	
+			case "Forest":
+				xLimit = 4240;
+				break;
 		}	
 	}
 
@@ -57,8 +55,18 @@ public partial class Camera : Camera2D
 			GlobalPosition += Velocity * (float)delta;
 			GlobalPosition = new Vector2(
 				x: Mathf.Clamp(GlobalPosition.X, 960, xLimit),
-				y: Mathf.Clamp(GlobalPosition.Y, 0, yLimit)
+				y: GlobalPosition.Y
 			);
 		}
+	}
+
+	/// <summary>
+	/// Image Names: Grass, Bow, Reunion
+	/// </summary>
+	/// <param name="name"></param>
+	/// /// <param name="show"></param>
+	public void ToggleImage(String name, bool show)
+	{
+		GetNode<Sprite2D>(name).Visible = show;
 	}
 }

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c7njdp3cm2qn3"]
+
+[ext_resource type="PackedScene" uid="uid://04e1j0o480n1" path="res://scenes/icon.tscn" id="1_lifw2"]
+[ext_resource type="Texture2D" uid="uid://craakifsfck82" path="res://assets/forest_background.png" id="1_stcry"]
+[ext_resource type="Script" uid="uid://nnhwcee1lfx3" path="res://Forest.cs" id="1_vmuxp"]
+[ext_resource type="PackedScene" uid="uid://d0jj1bb0qe24b" path="res://scenes/camera.tscn" id="3_uq144"]
+[ext_resource type="PackedScene" uid="uid://bgksa2kb17a54" path="res://scenes/interact_area.tscn" id="4_mvm06"]
+
+[node name="Forest" type="Node2D" unique_id=698212484]
+script = ExtResource("1_vmuxp")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=527263257]
+texture = ExtResource("1_stcry")
+centered = false
+
+[node name="Icon" parent="." unique_id=325734394 instance=ExtResource("1_lifw2")]
+position = Vector2(-63, -58)
+
+[node name="Camera" parent="." unique_id=310866334 instance=ExtResource("3_uq144")]
+position = Vector2(4240, 540)
+
+[node name="DoorInteract" parent="." unique_id=1136881088 instance=ExtResource("4_mvm06")]
+position = Vector2(4460.0005, 603)
+scale = Vector2(1.3, 1.5)
+
+[node name="BowBushInteract" parent="." unique_id=397099713 instance=ExtResource("4_mvm06")]
+position = Vector2(2284, 404)
+scale = Vector2(1.2, 1.1)
+
+[node name="ClearingInteract" parent="." unique_id=795101012 instance=ExtResource("4_mvm06")]
+position = Vector2(736, 186)
+scale = Vector2(5, 4)
+VerticalIconOffset = -300
+
+[connection signal="Clicked" from="DoorInteract" to="." method="OnDoorInteract"]
+[connection signal="Clicked" from="BowBushInteract" to="." method="OnBowBushInteract"]
+[connection signal="Clicked" from="ClearingInteract" to="." method="OnClearingInteract"]
