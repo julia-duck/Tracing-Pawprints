@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://ca5q2hmgsi2w6"]
+
+[ext_resource type="Script" uid="uid://biusy6ivf414b" path="res://scripts/Popup.cs" id="1_4ebxx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpc1a"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.62875116, 0.4662274, 0.24410415, 1)
+
+[sub_resource type="Theme" id="Theme_4ebxx"]
+default_font_size = 40
+Window/styles/embedded_border = SubResource("StyleBoxFlat_cpc1a")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvnu6"]
+bg_color = Color(0.68664795, 0.5857146, 0.4005, 1)
+border_width_bottom = 5
+border_color = Color(0.6862745, 0.58431375, 0.4, 1)
+
+[node name="Popup" type="CanvasLayer" unique_id=122372514]
+script = ExtResource("1_4ebxx")
+
+[node name="AcceptDialog" type="AcceptDialog" parent="." unique_id=1393686689]
+oversampling_override = 1.0
+title = ""
+initial_position = 2
+size = Vector2i(1056, 745)
+visible = true
+content_scale_size = Vector2i(1, 1)
+theme = SubResource("Theme_4ebxx")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xvnu6")
+ok_button_text = "Select"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AcceptDialog" unique_id=593107841]
+offset_right = 1056.0
+offset_bottom = 667.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="AcceptDialog/VBoxContainer" unique_id=789535014]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AcceptDialog/VBoxContainer/MarginContainer2" unique_id=38349998]
+custom_minimum_size = Vector2(50, 210)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "                     Tracing Pawprints
+----------------------------------------------------------------
+A game about finding your lost cat through
+ connections and memories
+
+Enter your cat's information:
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="AcceptDialog/VBoxContainer" unique_id=1071287039]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 100
+
+[node name="LineEdit" type="LineEdit" parent="AcceptDialog/VBoxContainer/MarginContainer" unique_id=817074133]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/minimum_character_width = 10
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Default name: Autumn"
+
+[node name="MarginContainer3" type="MarginContainer" parent="AcceptDialog/VBoxContainer" unique_id=920541387]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 100
+
+[node name="P1" type="LineEdit" parent="AcceptDialog/VBoxContainer/MarginContainer3" unique_id=1479189637]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/minimum_character_width = 10
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Pronoun 1 (she/he/they)"
+
+[node name="MarginContainer4" type="MarginContainer" parent="AcceptDialog/VBoxContainer" unique_id=1109926511]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 100
+
+[node name="P2" type="LineEdit" parent="AcceptDialog/VBoxContainer/MarginContainer4" unique_id=962424282]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/minimum_character_width = 10
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Pronoun 2 (her/him/them)"
+
+[connection signal="confirmed" from="AcceptDialog" to="." method="OnConfirmed"]

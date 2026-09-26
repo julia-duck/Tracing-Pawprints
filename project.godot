@@ -15,6 +15,10 @@ config/description="A short game about finding your lost cat! Made for the Cozy 
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PopupGlobal="*uid://ca5q2hmgsi2w6"
+
 [display]
 
 window/size/viewport_width=1920

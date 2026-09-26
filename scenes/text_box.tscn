@@ -21,8 +21,10 @@ metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=16873878]
 layout_mode = 0
-offset_right = 968.0
-offset_bottom = 182.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 1811.0
+offset_bottom = 247.0
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15

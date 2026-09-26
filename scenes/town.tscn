@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://htb5l5ikxdax"]
 
+[ext_resource type="Script" uid="uid://cyq7ulle515qa" path="res://scripts/Town.cs" id="1_1jyyf"]
 [ext_resource type="Texture2D" uid="uid://ddphd3jj3ke57" path="res://assets/town_background.png" id="1_f2a5t"]
 [ext_resource type="PackedScene" uid="uid://bgksa2kb17a54" path="res://scenes/interact_area.tscn" id="1_ms2es"]
 [ext_resource type="PackedScene" uid="uid://d0jj1bb0qe24b" path="res://scenes/camera.tscn" id="2_f2a5t"]
 [ext_resource type="PackedScene" uid="uid://04e1j0o480n1" path="res://scenes/icon.tscn" id="4_eruj1"]
 
 [node name="Town" type="Node2D" unique_id=1042096596]
+script = ExtResource("1_1jyyf")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=628098298]
 texture = ExtResource("1_f2a5t")
