@@ -89,4 +89,16 @@ public partial class TextBox : Node2D
 		await ST("The shop owner indicates towards the forest nearby.");
 		await ST("You: Thank you! I'll let you know if I find your bowtie---and my cat.");
 	}
+	
+	public async Task ReunionScene()
+	{
+		await ST("You are choked with tears and unable to speak at first.");
+		await ST("The memories of " + cat + " have made you miss " + pronoun2 + " more than you'd thought possible.");
+		await ST("You: " + cat + "..." + cat + "...is it really you?");
+		await ST(cat + ": Purrrrrrrrrrr");
+		await ST("You: You don't seem worried in the slightest, sunbathing like that!");
+		await ST("You give out a husky laugh in a sudden rush of relief that drains your energy.");
+		await ST("Come on, let's go home, " + cat + ". Then you can have all the tuna you want!");
+		await ST(cat + ": PURRRRRRRRRRRRRRRR!");
+	}
 }
