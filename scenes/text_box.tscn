@@ -14,9 +14,10 @@ border_color = Color(0.5664666, 0.43039358, 0.19599661, 1)
 script = ExtResource("1_k7ve7")
 
 [node name="Panel" type="Panel" parent="." unique_id=1901118660]
-offset_right = 968.0
-offset_bottom = 183.0
+offset_top = -250.0
+offset_right = 1820.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_smhyf")
+metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=16873878]
 layout_mode = 0

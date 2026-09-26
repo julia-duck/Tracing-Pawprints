@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://bgksa2kb17a54"]
 
-[node name="InteractArea" type="Button" unique_id=1674468242]
+[ext_resource type="Script" uid="uid://djkkuh613bp61" path="res://scripts/InteractArea.cs" id="1_q06jp"]
+
+[node name="InteractArea" type="Node2D" unique_id=1136881088]
+self_modulate = Color(1, 1, 1, 0)
+script = ExtResource("1_q06jp")
+
+[node name="Button" type="Button" parent="." unique_id=1996066352]
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 200.0
+
+[connection signal="mouse_entered" from="Button" to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Button" to="." method="OnMouseExited"]
+[connection signal="pressed" from="Button" to="." method="OnButtonPressed"]
