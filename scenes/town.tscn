@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://htb5l5ikxdax"]
+
+[ext_resource type="Texture2D" uid="uid://ddphd3jj3ke57" path="res://assets/town_background.png" id="1_f2a5t"]
+[ext_resource type="PackedScene" uid="uid://d0jj1bb0qe24b" path="res://scenes/camera.tscn" id="2_f2a5t"]
+
+[node name="Town" type="Node2D" unique_id=1042096596]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=628098298]
+texture = ExtResource("1_f2a5t")
+centered = false
+
+[node name="Camera" parent="." unique_id=310866334 instance=ExtResource("2_f2a5t")]
+position = Vector2(2340, 540)
+Speed = 500
