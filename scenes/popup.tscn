@@ -17,14 +17,19 @@ border_width_bottom = 5
 border_color = Color(0.5372549, 0.44705883, 0.28235295, 1)
 
 [node name="Popup" type="CanvasLayer" unique_id=122372514]
+visible = false
 script = ExtResource("1_4ebxx")
 
 [node name="AcceptDialog" type="AcceptDialog" parent="." unique_id=1393686689]
 oversampling_override = 1.0
 title = ""
 initial_position = 2
+<<<<<<< HEAD
 size = Vector2i(1370, 745)
 visible = true
+=======
+size = Vector2i(1056, 745)
+>>>>>>> b2f417f6efa911c95a40daa4d0fc01c8a4bde5ed
 content_scale_size = Vector2i(1, 1)
 theme = SubResource("Theme_4ebxx")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xvnu6")

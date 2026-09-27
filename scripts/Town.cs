@@ -10,6 +10,10 @@ public partial class Town : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		if (StateData.FirstStartGame) {
+			StateData.FirstStartGame = false;
+			GetNode<Popup>("/root/PopupGlobal").ShowPopup();
+		}
 		text = GetNode<Camera2D>("Camera").GetNode<TextBox>("TextBox");
 		grasses = new Godot.Collections.Array<InteractArea>();
 		for (int i = 1; i <= 8; i ++)

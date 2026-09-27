@@ -5,13 +5,18 @@ public partial class Popup : CanvasLayer
 {
 	[Signal]
 	public delegate void PopupConfirmedEventHandler();
+	
+	private AcceptDialog popup;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Hide();
-		//AcceptDialog popup = GetNode<CanvasLayer>("/root/Popup").GetNode<AcceptDialog>("AcceptDialog");
+		popup = GetNode<AcceptDialog>("AcceptDialog");
 		//popup.Confirmed += OnConfirmed();
-		//Show();
+		popup.Hide();
+	}
+	public void ShowPopup()
+	{
+		popup.Show();
 	}
 	public void OnConfirmed()
 	{

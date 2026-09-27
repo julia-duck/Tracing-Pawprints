@@ -13,6 +13,7 @@ public partial class StateData : Node
 	6. End*/
 
 	public static bool Bait = false;
+	public static bool FirstStartGame = true;
 	
 
 }
