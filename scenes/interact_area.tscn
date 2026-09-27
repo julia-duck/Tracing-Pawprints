@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://djkkuh613bp61" path="res://scripts/InteractArea.cs" id="1_q06jp"]
 
 [node name="InteractArea" type="Node2D" unique_id=1136881088]
+modulate = Color(1, 1, 1, 0)
 script = ExtResource("1_q06jp")
 
 [node name="Button" type="Button" parent="." unique_id=1996066352]

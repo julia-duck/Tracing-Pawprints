@@ -36,6 +36,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_mgrm8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mgrm8")
 text = "Play"
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1640960338]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
 [node name="Camera" parent="." unique_id=310866334 instance=ExtResource("2_sa3yf")]
 position = Vector2(960, 540)
 

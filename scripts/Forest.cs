@@ -64,7 +64,10 @@ public partial class Forest : Node2D
 	private async void OnDoorInteract(InteractArea trigger)
 	{
 		trigger.SetDisabled(true);
+		var shopkeep = GetNode<Sprite2D>("Shopkeep");
+		shopkeep.Show();
 		await Text.BowtieShopOwnerScene();
+		shopkeep.Hide();
 		RefreshAreas();
 		//=trigger.SetDisabled(false);
 	}
@@ -90,4 +93,12 @@ public partial class Forest : Node2D
 		trigger.SetDisabled(true);
 		await Text.NoBowBush();
 	}
+
+	private async void OnWeomInteract(InteractArea trigger)
+	{
+		// trigger.SetDisabled(true);
+		// await Text.ST("You got a weom!");
+		// StateData.Bait = true;
+	}
+	
 }

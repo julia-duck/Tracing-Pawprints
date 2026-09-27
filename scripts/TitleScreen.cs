@@ -21,6 +21,7 @@ public partial class TitleScreen : Node2D
 		// await ToSignal(popup, Popup.SignalName.PopupConfirmed);
 		//intro text
 		GetNode<Button>("StartButton").Disabled = true;
+		GetNode<ColorRect>("ColorRect").Show();
 		var text = GetNode<TextBox>("Camera/TextBox");
 		await text.IntroScene();
 		GetTree().ChangeSceneToFile("res://scenes/town.tscn");

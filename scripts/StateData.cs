@@ -11,6 +11,8 @@ public partial class StateData : Node
 	4. BushBowtie
 	5. Reunion
 	6. End*/
+
+	public static bool Bait = false;
 	
 
 }

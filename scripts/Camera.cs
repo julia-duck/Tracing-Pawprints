@@ -21,7 +21,7 @@ public partial class Camera : Camera2D
 	{
 		if (AllowTransition)
 		{
-			Position = new Vector2(40, 540);
+			Position = new Vector2(1000, 540);
 		}
 		xRightLimit = 2340;
 		MovementEnabled = true;
@@ -115,8 +115,6 @@ public partial class Camera : Camera2D
 				x: Mathf.Clamp(GlobalPosition.X, xLeftLimit, xRightLimit),
 				y: GlobalPosition.Y
 			);
-		}
-		
 		//arrows
 		// if (Velocity != Vector2.Zero)
 		// {
@@ -137,6 +135,7 @@ public partial class Camera : Camera2D
 				RightArrow.Show();
 			}
 		// }
+		}
 
 		//transition
 		if (GlobalPosition.X <= 960 && AllowTransition && RoomName == "Town")
@@ -149,7 +148,7 @@ public partial class Camera : Camera2D
 		}
 	}
 	/// <summary>
-	/// Image Names: Grass, Bow, Reunion
+	/// Image Names: Sweater, Grass, Bow, Reunion
 	/// </summary>
 	/// <param name="name"></param>
 	/// /// <param name="show"></param>

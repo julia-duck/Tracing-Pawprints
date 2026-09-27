@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://04e1j0o480n1" path="res://scenes/icon.tscn" id="3_i1yi8"]
 [ext_resource type="PackedScene" uid="uid://d0jj1bb0qe24b" path="res://scenes/camera.tscn" id="4_qm7rg"]
 [ext_resource type="PackedScene" uid="uid://bgksa2kb17a54" path="res://scenes/interact_area.tscn" id="5_0nboi"]
+[ext_resource type="Texture2D" uid="uid://7iu668ax8rw3" path="res://assets/bowtie.png" id="6_sek5r"]
+[ext_resource type="Texture2D" uid="uid://8m3xeg1b8uak" path="res://assets/shopkeep.png" id="7_i1yi8"]
 
 [node name="Forest" type="Node2D" unique_id=698212484]
 script = ExtResource("1_xr56k")
@@ -29,7 +31,7 @@ position = Vector2(2284, 404)
 scale = Vector2(1.2, 1.1)
 
 [node name="ClearingInteract" parent="." unique_id=795101012 instance=ExtResource("5_0nboi")]
-position = Vector2(736, 186)
+position = Vector2(836, 186)
 scale = Vector2(5, 4)
 VerticalIconOffset = -300
 
@@ -42,9 +44,25 @@ position = Vector2(3080, 330)
 
 [node name="NoBowBush3" parent="." unique_id=86365256 instance=ExtResource("5_0nboi")]
 
+[node name="Bowtie" type="Sprite2D" parent="." unique_id=910508221]
+visible = false
+position = Vector2(2235, 609)
+texture = ExtResource("6_sek5r")
+
+[node name="WeomInteract" parent="." unique_id=488421353 instance=ExtResource("5_0nboi")]
+position = Vector2(243, 422)
+
+[node name="Shopkeep" type="Sprite2D" parent="." unique_id=1398273866]
+visible = false
+position = Vector2(4512, 772)
+texture = ExtResource("7_i1yi8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1396820856]
+
 [connection signal="Clicked" from="DoorInteract" to="." method="OnDoorInteract"]
 [connection signal="Clicked" from="BowBushInteract" to="." method="OnBowBushInteract"]
 [connection signal="Clicked" from="ClearingInteract" to="." method="OnClearingInteract"]
 [connection signal="Clicked" from="NoBowBush1" to="." method="OnNoBowBushInteract"]
 [connection signal="Clicked" from="NoBowBush2" to="." method="OnNoBowBushInteract"]
 [connection signal="Clicked" from="NoBowBush3" to="." method="OnNoBowBushInteract"]
+[connection signal="Clicked" from="WeomInteract" to="." method="OnWeomInteract"]

@@ -26,6 +26,7 @@ public partial class Town : Node2D
 	
 	public void RefreshAreas()
 	{
+		GD.Print("Refreshing>");//=
 		switch (StateData.CurrentMemory)
 		{
 			case "Neighbor": ToggleArea1(false);
@@ -48,6 +49,7 @@ public partial class Town : Node2D
 		GetNode<InteractArea>("Tree").SetDisabled(toggle);
 	}
 	public void ToggleArea2(bool toggle) {
+		GD.Print("Area 2");//=
 		for (int i = 0; i < 7; i ++)
 		{
 			grasses[0].SetDisabled(true);
@@ -58,7 +60,10 @@ public partial class Town : Node2D
 	public async void OnNeighborInteract(InteractArea trigger)
 	{
 		trigger.SetDisabled(true);
+		var marcy = GetNode<Sprite2D>("Marcy");
+		marcy.Show();
 		await text.NeighborScene();
+		marcy.Hide();
 		RefreshAreas();
 	}
 
@@ -92,4 +97,18 @@ public partial class Town : Node2D
 		trigger.SetDisabled(true);
 		await text.Fountain();
 	}
+
+	public async void OnFishingInteract(InteractArea trigger) 
+	{
+		trigger.SetDisabled(true);
+		if (StateData.Bait)
+		{
+		}
+		else
+		{
+			await text.NoBait();
+		}
+		trigger.SetDisabled(false);
+	}
+
 }
