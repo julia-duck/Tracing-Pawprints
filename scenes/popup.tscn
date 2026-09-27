@@ -24,20 +24,15 @@ script = ExtResource("1_4ebxx")
 oversampling_override = 1.0
 title = ""
 initial_position = 2
-<<<<<<< HEAD
-size = Vector2i(1370, 745)
-visible = true
-=======
 size = Vector2i(1056, 745)
->>>>>>> b2f417f6efa911c95a40daa4d0fc01c8a4bde5ed
 content_scale_size = Vector2i(1, 1)
 theme = SubResource("Theme_4ebxx")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xvnu6")
 ok_button_text = "Select"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AcceptDialog" unique_id=593107841]
-offset_right = 1370.0
-offset_bottom = 670.0
+offset_right = 1056.0
+offset_bottom = 667.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="AcceptDialog/VBoxContainer" unique_id=789535014]
 layout_mode = 2

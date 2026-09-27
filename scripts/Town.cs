@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public partial class Town : Node2D
 {
+	[Signal]
+	public delegate void GetFishEventHandler();
 	private TextBox text;
 	private Godot.Collections.Array<InteractArea> grasses;
 	private InteractArea door;
@@ -26,11 +28,14 @@ public partial class Town : Node2D
 	}
 	public override void _Process(double delta)
 	{
+		if (Input.IsActionJustPressed("enter"))
+		{
+			EmitSignal(SignalName.GetFish);
+		}
 	}
 	
 	public void RefreshAreas()
 	{
-		GD.Print("Refreshing>");//=
 		switch (StateData.CurrentMemory)
 		{
 			case "Neighbor": ToggleArea1(false);
@@ -53,10 +58,9 @@ public partial class Town : Node2D
 		GetNode<InteractArea>("Tree").SetDisabled(toggle);
 	}
 	public void ToggleArea2(bool toggle) {
-		GD.Print("Area 2");//=
 		for (int i = 0; i < 7; i ++)
 		{
-			grasses[0].SetDisabled(true);
+			grasses[i].SetDisabled(toggle);
 		}
 		GetNode<InteractArea>("Fountain").SetDisabled(toggle);
 	}
@@ -107,11 +111,32 @@ public partial class Town : Node2D
 		trigger.SetDisabled(true);
 		if (StateData.Bait)
 		{
+			//fish
+			var rod = GetNode<Sprite2D>("FishingRod");
+			rod.Frame = 0;
+			var icon = GetNode<Sprite2D>("FishingIcon");
+			icon.Frame = 1;
+			icon.Show();
+			var time = GD.RandRange(0.0, 5.0);
+			await ToSignal(GetTree().CreateTimer((float) time), SceneTreeTimer.SignalName.Timeout);
+			icon.Frame = 0;
+			await ToSignal(this, SignalName.GetFish);
+			icon.Hide();
+			var fishNum = GD.RandRange(0, 3);
+			var fish = GetNode<Sprite2D>("Fish");
+			fish.Frame = fishNum;
+			fish.Visible = true;
+			var anim = GetNode<AnimationPlayer>("AnimationPlayer");
+			anim.Play("fish");
+			await ToSignal(anim, AnimationPlayer.SignalName.AnimationFinished);
+			fish.Visible = false;
+			rod.Frame = 1;
 		}
 		else
 		{
 			await text.NoBait();
 		}
+		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
 		trigger.SetDisabled(false);
 	}
 

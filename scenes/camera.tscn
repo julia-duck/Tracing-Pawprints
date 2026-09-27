@@ -11,6 +11,15 @@
 [node name="Camera" type="Camera2D" unique_id=310866334]
 script = ExtResource("1_cvpoc")
 
+[node name="LeftArrow" type="Sprite2D" parent="." unique_id=2144570058]
+position = Vector2(-860, 0)
+texture = ExtResource("6_p8nh0")
+
+[node name="RightArrow" type="Sprite2D" parent="." unique_id=1886858927]
+position = Vector2(860, 0)
+texture = ExtResource("6_p8nh0")
+flip_h = true
+
 [node name="Sweater" type="Sprite2D" parent="." unique_id=1093883839]
 visible = false
 texture = ExtResource("7_ys67x")
@@ -30,12 +39,3 @@ texture = ExtResource("5_b05li")
 [node name="TextBox" parent="." unique_id=1844752775 instance=ExtResource("2_kod1s")]
 visible = false
 position = Vector2(-930, 510)
-
-[node name="LeftArrow" type="Sprite2D" parent="." unique_id=2144570058]
-position = Vector2(-860, 0)
-texture = ExtResource("6_p8nh0")
-
-[node name="RightArrow" type="Sprite2D" parent="." unique_id=1886858927]
-position = Vector2(860, 0)
-texture = ExtResource("6_p8nh0")
-flip_h = true

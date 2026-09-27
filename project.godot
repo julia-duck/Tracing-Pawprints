@@ -12,8 +12,9 @@ config_version=5
 
 config/name="Tracing Pawprints"
 config/description="A short game about finding your lost cat! Made for the Cozy Fall Jam 2026."
+run/main_scene="uid://d1afynnpocwwv"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://7iu668ax8rw3"
 
 [autoload]
 

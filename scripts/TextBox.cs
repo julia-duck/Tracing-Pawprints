@@ -50,9 +50,12 @@ public partial class TextBox : Node2D
 	}
 	public async Task IntroScene()
 	{
+		var music = GetNode<Node2D>("/root/GlobalSound").GetNode<AudioStreamPlayer>("MusicPlayer");
+		music.Stop();
 		await ST("It feels like forever ago since you held your cat in your arms, even though your cat only disappeared this morning.");
 		await ST("You gulp, stifling an anxious sob. You wonder if you should put up posters and sit back waiting or look for your cat yourself.");
 		await ST("Suddenly, a memory threads through your mind.");
+		music.Play();
 		camera.ToggleImage("Sweater", true);
 		SetTopPosition(true);
 		await ST("The memory is from last fall. You are holding your cat and going to visit your neighbor.");
@@ -72,7 +75,7 @@ public partial class TextBox : Node2D
 		await ST("Marcy smiles in sympathy and goes to bring her clothes in from the clothes line.");
 		await ST("Marcy: Wait, my red sweater is missing!");
 		await ST("Your heart pounds with renewed hope.");
-		await ST("You: " + cat + " must have passed through here! Maybe there's something else here that will help me find " + pronoun2 + "!");
+		await ST("You: " + cat + " might have passed through here and taken it! Maybe there's something else here that will help me find " + pronoun2 + "!");
 		await ST("*Use arrow keys to look around.");
 		camera.SetLeftLimit();
 	}
@@ -83,17 +86,23 @@ public partial class TextBox : Node2D
 		await ST("You: Hmm, that's interesting. Some of the grass seems to be shorter here.");
 		await ST("Suddenly, you become very still as another memory hits you. It is hazy at first but begins to solidify.");
 		camera.ToggleImage("Grass", true);
+		SetTopPosition(true);
 		await ST("You are going to the lake to cool off. You don't expect " + cat + " to be interested, as " + pronoun1 + " hates getting wet, but you bring " + pronoun2 + " along anyways.");
 		await ST(cat + " isn't interested in the water. But " + pronoun1 + " is very interested in the fountain grass beside it.");
 		await ST("You have no idea why, but " + cat + " kept trying to eat the grass.");
 		await ST("You wondered why the grass tasted good to " + cat + ", but you didn't dare try it yourself.");
 		camera.ToggleImage("Grass", false);
+		SetTopPosition(false);
+		if (camera.Position.X == 960)
+		{
+			camera.Position = new Vector2(1000, 540);
+		}
 		camera.SetLeftLimit();
 	}
 
 	public async Task NoBait()
 	{
-		await ST("There's a stray fishing rod here.");// But you don't have any bait!");
+		await ST("There's a stray fishing rod here. But you don't have any bait!");
 	}
 	
 	public async Task BowtieShopOwnerScene()
@@ -142,12 +151,13 @@ public partial class TextBox : Node2D
 		await ST(cat + ": PURRRRRRRRRRRRRRRR!");
 		camera.ToggleImage("Reunion", false);
 		SetTopPosition(false);
+		await ST("THE END!! Thank you for playing!");
 	}
 	
 	//not main storyline
 	public async Task YellowHouse() 
 	{
-		await ST("Out of desparation, you knock on the door of a neighbor you don't know well.");
+		await ST("Out of desperation, you knock on the door of a neighbor you don't know well.");
 		await ST("You: Maybe they've seen " + cat + ". I have to try!");
 		await ST("An old lady emerges and peers down at you through her glasses with narrowed eyes.");
 		await ST("Old Lady: Don't you see the sign? No soliciting!");
@@ -159,7 +169,7 @@ public partial class TextBox : Node2D
 	public async Task OrangeHouse() 
 	{
 		await ST("You knock on the door and a young man answers it. He seems to be a college student, with thin-rimmed round glasses and black hair.");
-		await ST("You: Hello, sorry to bother you. I was wondering if you saw my cat around today. Tortoishell, orange and white fur?");
+		await ST("You: Hello, sorry to bother you. I was wondering if you saw my cat around today. White and orange fur?");
 		await ST("Young Man: Sorry to disappoint you, but I've been locked in my room all day studying for an exam.");
 		await ST("Young Man: I hope you find your cat, though.");
 	}
@@ -168,7 +178,7 @@ public partial class TextBox : Node2D
 		await ST(cat + " acted more like a dog than a cat sometimes; " + pronoun1 + " didn't like climbing trees but loved chasing squirrles.");
 		await ST(cat + " was usually lazy and would stop at the base of the tree and meow when the squirrel climbed up.");
 		await ST("But maybe " + cat + " was determined enough this time and climbed the tree. Or maybe there was a squirrel up there that could lure " + pronoun1 + " back home.");
-		await ST("You are worrying about how to catch a squirrel to attract " + cat + " with, but turns out you don't have to worry.");
+		await ST("You worry about how to catch a squirrel to attract " + cat + " with, but it turns out there's no need to worry.");
 		await ST("There are no squirrels in the tree, and " + cat + " isn't there either.");
 	}
 	public async Task Fountain()
@@ -193,7 +203,7 @@ public partial class TextBox : Node2D
 		}
 		else
 		{
-			Position = new Vector2(Position.X, 540);
+			Position = new Vector2(Position.X, 510);
 		}
 	}
 }

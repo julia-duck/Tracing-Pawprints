@@ -19,9 +19,17 @@ public partial class Camera : Camera2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		RoomName = GetParent().Name;
 		if (AllowTransition)
 		{
-			Position = new Vector2(1000, 540);
+			if (RoomName == "Town")
+			{
+				Position = new Vector2(1000, 540);
+			}
+			else
+			{
+				Position = new Vector2(4200, 540);
+			}
 		}
 		xRightLimit = 2340;
 		MovementEnabled = true;
@@ -29,7 +37,7 @@ public partial class Camera : Camera2D
 		LeftArrow = GetNode<Node2D>("LeftArrow");
 		RightArrow = GetNode<Node2D>("RightArrow");
 		AllowTransition = false;
-		RoomName = GetParent().Name;
+		
 		switch (RoomName)
 		{
 			case "TitleScreen":
@@ -60,9 +68,9 @@ public partial class Camera : Camera2D
 			case "Neighbor":
 				MovementEnabled = false;
 				break;
-			case "FountainGrass"://=
+			case "FountainGrass":
 				break;
-			case "Bowties":
+			default:
 				AllowTransition = true;
 				break;
 			}

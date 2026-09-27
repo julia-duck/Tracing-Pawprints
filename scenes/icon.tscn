@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://d3y7tc3aenopb" path="res://assets/icons.png" id="1_h6rt1"]
 
 [node name="Icon" type="Sprite2D" unique_id=325734394]
+position = Vector2(-94, -68)
 texture = ExtResource("1_h6rt1")
-hframes = 2
+hframes = 3

@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://d0jj1bb0qe24b" path="res://scenes/camera.tscn" id="2_f2a5t"]
 [ext_resource type="Texture2D" uid="uid://dr1hvujqnlbfo" path="res://assets/town_background_1.png" id="2_t6cq8"]
 [ext_resource type="Texture2D" uid="uid://ds1rk5p0aai36" path="res://assets/town_background_2.png" id="3_cq4yp"]
+[ext_resource type="Texture2D" uid="uid://b6mru4lpapjpd" path="res://assets/fishing_icons.png" id="4_5q1rr"]
 [ext_resource type="Texture2D" uid="uid://ixcqdon1d5xa" path="res://assets/fishing_rod.png" id="4_cq4yp"]
 [ext_resource type="PackedScene" uid="uid://04e1j0o480n1" path="res://scenes/icon.tscn" id="4_eruj1"]
+[ext_resource type="Texture2D" uid="uid://djplbmyov1yn2" path="res://assets/fishies.png" id="5_v3ani"]
 [ext_resource type="Texture2D" uid="uid://b1dgq7vnm8x8a" path="res://assets/marcy.png" id="8_yn4qk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jif1a"]
@@ -23,6 +25,92 @@ animations = [{
 "speed": 0.88
 }]
 
+[sub_resource type="Animation" id="Animation_5q1rr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fish:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(884, 475)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fish:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fish:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_po04c"]
+resource_name = "fish"
+length = 2.4000000000000004
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fish:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(884, 475), Vector2(884, 250), Vector2(884, 250), Vector2(884, 475)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fish:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(1, 1), Vector2(0, 1), Vector2(1, 1), Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fish:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4arb"]
+_data = {
+&"RESET": SubResource("Animation_5q1rr"),
+&"fish": SubResource("Animation_po04c")
+}
+
 [node name="Town" type="Node2D" unique_id=1042096596]
 script = ExtResource("1_1jyyf")
 
@@ -31,15 +119,23 @@ sprite_frames = SubResource("SpriteFrames_jif1a")
 autoplay = "default"
 centered = false
 
+[node name="FishingIcon" type="Sprite2D" parent="." unique_id=18569282]
+visible = false
+position = Vector2(999, 139)
+texture = ExtResource("4_5q1rr")
+hframes = 2
+
 [node name="FishingRod" type="Sprite2D" parent="." unique_id=120868858]
 texture = ExtResource("4_cq4yp")
 centered = false
 hframes = 2
 frame = 1
 
-[node name="Camera" parent="." unique_id=310866334 instance=ExtResource("2_f2a5t")]
-position = Vector2(2340, 540)
-Speed = 500
+[node name="Fish" type="Sprite2D" parent="." unique_id=480044855]
+visible = false
+position = Vector2(884, 475)
+texture = ExtResource("5_v3ani")
+hframes = 4
 
 [node name="NeighborDoor" parent="." unique_id=244177938 instance=ExtResource("1_ms2es")]
 position = Vector2(2051, 435)
@@ -85,11 +181,11 @@ IconNumber = 2
 
 [node name="Icon" parent="." unique_id=325734394 instance=ExtResource("4_eruj1")]
 position = Vector2(-109, -101)
-hframes = 3
 
 [node name="YellowHouseDoor" parent="." unique_id=760068018 instance=ExtResource("1_ms2es")]
 position = Vector2(2600, 200)
 scale = Vector2(1, 1.1)
+IconNumber = 1
 
 [node name="Fountain" parent="." unique_id=1803337562 instance=ExtResource("1_ms2es")]
 position = Vector2(650, 500)
@@ -97,6 +193,7 @@ scale = Vector2(5, 3)
 
 [node name="OrangeHouseDoor" parent="." unique_id=389358708 instance=ExtResource("1_ms2es")]
 position = Vector2(2700, 900)
+IconNumber = 1
 
 [node name="Tree" parent="." unique_id=148695838 instance=ExtResource("1_ms2es")]
 position = Vector2(1630, 400)
@@ -106,6 +203,12 @@ scale = Vector2(2, 1.2)
 visible = false
 position = Vector2(2080, 568)
 texture = ExtResource("8_yn4qk")
+
+[node name="Camera" parent="." unique_id=310866334 instance=ExtResource("2_f2a5t")]
+position = Vector2(2340, 540)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=325249005]
+libraries/ = SubResource("AnimationLibrary_u4arb")
 
 [connection signal="Clicked" from="NeighborDoor" to="." method="OnNeighborInteract"]
 [connection signal="Clicked" from="GrassInteract1" to="." method="OnGrassInteract"]

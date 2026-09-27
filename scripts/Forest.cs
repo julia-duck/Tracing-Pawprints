@@ -69,7 +69,6 @@ public partial class Forest : Node2D
 		await Text.BowtieShopOwnerScene();
 		shopkeep.Hide();
 		RefreshAreas();
-		//=trigger.SetDisabled(false);
 	}
 
 	private async void OnBowBushInteract(InteractArea trigger)
@@ -77,7 +76,6 @@ public partial class Forest : Node2D
 		 trigger.SetDisabled(true);
 		await Text.BushBowtieScene();
 		RefreshAreas();
-		// //=trigger.SetDisabled(false);
 	}
 
 	private async void OnClearingInteract(InteractArea trigger)
@@ -85,7 +83,6 @@ public partial class Forest : Node2D
 		trigger.SetDisabled(true);
 		await Text.ReunionScene();
 		RefreshAreas();
-		//=trigger.SetDisabled(false);
 	}
 	
 	private async void OnNoBowBushInteract(InteractArea trigger)
@@ -96,9 +93,11 @@ public partial class Forest : Node2D
 
 	private async void OnWeomInteract(InteractArea trigger)
 	{
-		// trigger.SetDisabled(true);
-		// await Text.ST("You got a weom!");
-		// StateData.Bait = true;
+		trigger.SetDisabled(true);
+		GetNode<Sprite2D>("Weom").Show();
+		GetNode<AnimationPlayer>("AnimationPlayer").Play("weom");
+		await Text.ST("You got a worm!");
+		StateData.Bait = true;
 	}
 	
 }
