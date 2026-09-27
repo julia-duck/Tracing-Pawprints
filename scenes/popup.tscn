@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ca5q2hmgsi2w6"]
 
 [ext_resource type="Script" uid="uid://biusy6ivf414b" path="res://scripts/Popup.cs" id="1_4ebxx"]
+[ext_resource type="Texture2D" uid="uid://ccb0lt5ib281t" path="res://assets/TracingPawprintsIcon.png" id="2_cpc1a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpc1a"]
 content_margin_top = 12.0
@@ -17,22 +18,22 @@ border_width_bottom = 5
 border_color = Color(0.5372549, 0.44705883, 0.28235295, 1)
 
 [node name="Popup" type="CanvasLayer" unique_id=122372514]
-visible = false
 script = ExtResource("1_4ebxx")
 
 [node name="AcceptDialog" type="AcceptDialog" parent="." unique_id=1393686689]
 oversampling_override = 1.0
 title = ""
 initial_position = 2
-size = Vector2i(1056, 745)
+size = Vector2i(1370, 781)
+visible = true
 content_scale_size = Vector2i(1, 1)
 theme = SubResource("Theme_4ebxx")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xvnu6")
 ok_button_text = "Select"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AcceptDialog" unique_id=593107841]
-offset_right = 1056.0
-offset_bottom = 667.0
+offset_right = 1370.0
+offset_bottom = 706.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="AcceptDialog/VBoxContainer" unique_id=789535014]
 layout_mode = 2
@@ -47,8 +48,8 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 50
 text = "                     Tracing Pawprints
 ----------------------------------------------------------------
-A game about finding your lost cat through
- connections and memories
+A game about finding your lost cat
+through connections and memories
 
 Enter your cat's information:
 "
@@ -93,5 +94,9 @@ layout_mode = 2
 theme_override_constants/minimum_character_width = 10
 theme_override_font_sizes/font_size = 50
 placeholder_text = "Pronoun 2 (her/him/them)"
+
+[node name="Sprite2D" type="Sprite2D" parent="AcceptDialog" unique_id=321418839]
+position = Vector2(1132, 178)
+texture = ExtResource("2_cpc1a")
 
 [connection signal="confirmed" from="AcceptDialog" to="." method="OnConfirmed"]
