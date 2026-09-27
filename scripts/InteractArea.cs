@@ -47,6 +47,7 @@ public partial class InteractArea : Node2D
 
 	private void OnButtonPressed()
 	{
+		IconShown.Hide();
 		EmitSignal(SignalName.Clicked, GetNode<InteractArea>(GetPath()));
 	}
 }

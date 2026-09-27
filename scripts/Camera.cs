@@ -7,7 +7,7 @@ public partial class Camera : Camera2D
 	public int Speed {get; set;} = 800;
 
 	public bool MovementEnabled;
-
+		
 	private Vector2 Velocity;
 	private int xLimit;
 
@@ -17,7 +17,6 @@ public partial class Camera : Camera2D
 		xLimit = 2340;
 		MovementEnabled = true;
 		Velocity = Vector2.Zero;
-
 		var roomName = GetParent().Name;
 		switch (roomName)
 		{
@@ -30,36 +29,52 @@ public partial class Camera : Camera2D
 			case "Forest":
 				xLimit = 4240;
 				break;
-		}	
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (MovementEnabled)
-		{
-			// Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-			// Velocity = direction * Speed;
-			if (Input.IsActionPressed("move_left"))
-			{
-				Velocity.X = -Speed;
+		// Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
+		// Velocity = direction * Speed;
+		bool moveLeft = true;
+		if (GetParent().Name == "Town") {
+			if (StateData.CurrentMemory == "Neighbor") {
+				moveLeft = false;
 			}
-			else if (Input.IsActionPressed("move_right"))
-			{
-				Velocity.X = Speed;
+			else if (StateData.CurrentMemory == "FountainGrass") {
+				moveLeft = true;
 			}
-			else
-			{
-				Velocity = Vector2.Zero;
-			}
-			GlobalPosition += Velocity * (float)delta;
-			GlobalPosition = new Vector2(
-				x: Mathf.Clamp(GlobalPosition.X, 960, xLimit),
-				y: GlobalPosition.Y
-			);
 		}
+		else if (GetParent().Name == "Forest") {
+			if (StateData.CurrentMemory == "Bowties") {
+				moveLeft = false;
+			}
+			else if (StateData.CurrentMemory == "BushBowtie") {
+				moveLeft = GetScreenCenterPosition().X > 2500;
+			}
+			else {
+				moveLeft = true;
+			}
+		}
+		if (Input.IsActionPressed("move_left") && moveLeft)
+		{
+			Velocity.X = -Speed;
+		}
+		else if (Input.IsActionPressed("move_right"))
+		{
+			Velocity.X = Speed;
+		}
+		else
+		{
+			Velocity = Vector2.Zero;
+		}
+		GlobalPosition += Velocity * (float)delta;
+		GlobalPosition = new Vector2(
+			x: Mathf.Clamp(GlobalPosition.X, 960, xLimit),
+			y: GlobalPosition.Y
+		);
 	}
-
 	/// <summary>
 	/// Image Names: Grass, Bow, Reunion
 	/// </summary>

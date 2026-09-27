@@ -61,6 +61,7 @@ public partial class TextBox : Node2D
 	
 	public async Task NeighborScene()
 	{
+		StateData.CurrentMemory = "FountainGrass";
 		await ST("Neighbor: Well, hello! What brings you here, dear? Where's your sweet sweet kitty?");
 		await ST("You: Hi, Marcy. I've lost " + cat + ". " + pronoun1 + " escaped this morning and I was wondering if you saw " + pronoun2 + ".");
 		await ST("Marcy: Oh, that's horrible! I'm sorry, but I'm up late in the mornings and haven't seen your cat.");
@@ -73,6 +74,7 @@ public partial class TextBox : Node2D
 	
 	public async Task FountainGrassScene()
 	{
+		StateData.CurrentMemory = "Bowties";
 		await ST("You: Hmm, that's interesting. The grass seems to be shorter on this side.");
 		await ST("Suddenly, you become very still as another memory hits you. It is hazy at first but begins to solidify.");
 		camera.ToggleImage("Grass", true);
@@ -85,6 +87,7 @@ public partial class TextBox : Node2D
 	
 	public async Task BowtieShopOwnerScene()
 	{
+		StateData.CurrentMemory = "BushBowtie";
 		await ST("You: Hello. I've lost my cat, and I think " + pronoun1 + " went this way. Have you seen " + pronoun2 + "?");
 		await ST("Shop Owner: How funny, it seems to be the day of losing things. I've lost something too: My orange bowtie. It vanished while I was taking a walk.");
 		await ST("You frown; you don't think losing " + cat + " is remotely funny. But your frown begins to turn into a hopeful smile.");
@@ -96,10 +99,21 @@ public partial class TextBox : Node2D
 		await ST("You: Thank you! I'll let you know if I find your bowtie---and my cat.");
 	}
 	
+	public async Task BushBowtieScene()
+	{
+		StateData.CurrentMemory = "Reunion";
+		await ST("You look carefully through bushes, searching for hints that " + cat + " has been here.");
+		await ST("Suddenly, you find a bowtie in one of the bushes!");
+		await ST("You: Did that Bowtie shop owner drop it in here...?");
+		await ST("You: Or did " + cat + " steal it and put it in the bush?");
+	}
+	
 	public async Task ReunionScene()
 	{
+		StateData.CurrentMemory = "End";
 		camera.ToggleImage("Reunion", true);
 		Position = new Vector2(Position.X, 40);
+		await ST("You stop in your tracks upon seeing a lump of orange-white fur curled among the roots of a tree.");
 		await ST("You are choked with tears and unable to speak at first.");
 		await ST("The memories of " + cat + " have made you miss " + pronoun2 + " more than you'd thought possible.");
 		await ST("You: " + cat + "..." + cat + "...is it really you?");
