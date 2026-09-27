@@ -14,24 +14,39 @@ public partial class Town : Node2D
 		grass1 = GetNode<InteractArea>("GrassInteract");
 		grass2 = GetNode<InteractArea>("GrassInteract2");
 		door = GetNode<InteractArea>("NeighborDoor");
+		RefreshAreas();
 	}
 	public override void _Process(double delta)
 	{
+	}
+	
+	public void RefreshAreas()
+	{
 		switch (StateData.CurrentMemory)
 		{
-			case "Neighbor": door.SetDisabled(false);
-							 grass1.SetDisabled(true);
-							 grass2.SetDisabled(true);
+			case "Neighbor": ToggleArea1(false);
+							 ToggleArea2(true);
 							 break;
-			case "FountainGrass": door.SetDisabled(true);
-								  grass1.SetDisabled(false);
-								  grass2.SetDisabled(false);
+			case "FountainGrass": ToggleArea1(true);
+								  ToggleArea2(false);
 								  break;
-			default: door.SetDisabled(true);
-					 grass1.SetDisabled(true);
-					 grass2.SetDisabled(true);
+			default: ToggleArea1(true);
+					 ToggleArea2(true);
 					 break;
 		}
+	}
+	
+	/*toggle = disabled*/
+	public void ToggleArea1(bool toggle) {
+		door.SetDisabled(toggle);
+		GetNode<InteractArea>("YellowHouseDoor").SetDisabled(toggle);
+		GetNode<InteractArea>("OrangeHouseDoor").SetDisabled(toggle);
+		GetNode<InteractArea>("Tree").SetDisabled(toggle);
+	}
+	public void ToggleArea2(bool toggle) {
+		grass1.SetDisabled(toggle);
+		grass2.SetDisabled(toggle);
+		GetNode<InteractArea>("Fountain").SetDisabled(toggle);
 	}
 	
 	public async void StartDialogue()
@@ -45,6 +60,7 @@ public partial class Town : Node2D
 	{
 		trigger.SetDisabled(true);
 		await text.NeighborScene();
+		RefreshAreas();
 		//= trigger.SetDisabled(false);
 	}
 
@@ -52,6 +68,31 @@ public partial class Town : Node2D
 	{
 		trigger.SetDisabled(true);
 		await text.FountainGrassScene();
+		RefreshAreas();
 		//= trigger.SetDisabled(false);
+	}
+	
+	public async void OnYellowInteract(InteractArea trigger) 
+	{
+		trigger.SetDisabled(true);
+		await text.YellowHouse();
+	}
+	
+	public async void OnOrangeInteract(InteractArea trigger) 
+	{
+		trigger.SetDisabled(true);
+		await text.OrangeHouse();
+	}
+	
+	public async void OnTreeInteract(InteractArea trigger) 
+	{
+		trigger.SetDisabled(true);
+		await text.Tree();
+	}
+	
+	public async void OnFountainInteract(InteractArea trigger) 
+	{
+		trigger.SetDisabled(true);
+		await text.Fountain();
 	}
 }

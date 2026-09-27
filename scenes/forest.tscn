@@ -33,6 +33,18 @@ position = Vector2(736, 186)
 scale = Vector2(5, 4)
 VerticalIconOffset = -300
 
+[node name="NoBowBush1" parent="." unique_id=231227999 instance=ExtResource("5_0nboi")]
+position = Vector2(1880, 170)
+scale = Vector2(1.1, 1)
+
+[node name="NoBowBush2" parent="." unique_id=1230151004 instance=ExtResource("5_0nboi")]
+position = Vector2(3080, 330)
+
+[node name="NoBowBush3" parent="." unique_id=86365256 instance=ExtResource("5_0nboi")]
+
 [connection signal="Clicked" from="DoorInteract" to="." method="OnDoorInteract"]
 [connection signal="Clicked" from="BowBushInteract" to="." method="OnBowBushInteract"]
 [connection signal="Clicked" from="ClearingInteract" to="." method="OnClearingInteract"]
+[connection signal="Clicked" from="NoBowBush1" to="." method="OnNoBowBushInteract"]
+[connection signal="Clicked" from="NoBowBush2" to="." method="OnNoBowBushInteract"]
+[connection signal="Clicked" from="NoBowBush3" to="." method="OnNoBowBushInteract"]

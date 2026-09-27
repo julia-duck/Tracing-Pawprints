@@ -50,13 +50,13 @@ public partial class TextBox : Node2D
 	}
 	public async Task IntroScene()
 	{
-		await ST("It feels like forever ago since you held " + cat + " in your arms, even though " + cat + " only disappeared this morning.");
-		await ST("You gulp, stifling an anxious sob. You wonder if you should put up posters and sit back waiting or look for " + cat + " yourself.");
+		await ST("It feels like forever ago since you held your cat in your arms, even though your cat only disappeared this morning.");
+		await ST("You gulp, stifling an anxious sob. You wonder if you should put up posters and sit back waiting or look for your cat yourself.");
 		await ST("Suddenly, a memory threads through your mind.");
-		await ST("The memory is from last fall. You are holding " + cat + " and going to visit your neighbor.");
-		await ST(cat + " meows in protest but calms when set down. While you chat with the neighbor about an autumn gathering, " + cat + " spots a red sweater.");
-		await ST("You and your neighbor watch in amusement as " + cat + " snuggles into the sweater, falling fast asleep.");
-		await ST("You: I have to get " + cat + " back. And I know where to look first.");
+		await ST("The memory is from last fall. You are holding your cat and going to visit your neighbor.");
+		await ST("Your cat meows in protest but calms when set down. While you chat with the neighbor about an autumn gathering, your cat spots a red sweater.");
+		await ST("You and your neighbor watch in amusement as your cat snuggles into the sweater, falling fast asleep.");
+		await ST("You: I have to get my cat back. And I know where to look first.");
 	}
 	
 	public async Task NeighborScene()
@@ -128,5 +128,46 @@ public partial class TextBox : Node2D
 		await ST(cat + ": PURRRRRRRRRRRRRRRR!");
 		camera.ToggleImage("Reunion", false);
 		Position = new Vector2(Position.X, 510);
+	}
+	
+	//not main storyline
+	public async Task YellowHouse() 
+	{
+		await ST("Out of desparation, you knock on the door of a neighbor you don't know well.");
+		await ST("You: Maybe they've seen " + cat + ". I have to try!");
+		await ST("An old lady emerges and peers down at you through her glasses with narrowed eyes.");
+		await ST("Old Lady: Don't you see the sign? No soliciting!");
+		await ST("You: I was just wondering ---");
+		await ST("Old Lady: The answer is no! I'm not buying your stuff.");
+		await ST("The old lady slams the door in your face. You frown.");
+		await ST("You: But...I'm not even holding anything to sell.");
+	}
+	public async Task OrangeHouse() 
+	{
+		await ST("You knock on the door and a young man answers it. He seems to be a college student, with thin-rimmed round glasses and black hair.");
+		await ST("You: Hello, sorry to bother you. I was wondering if you saw my cat around today. Tortoishell, orange and white fur?");
+		await ST("Young Man: Sorry to disappoint you, but I've been locked in my room all day studying for an exam.");
+		await ST("Young Man: I hope you find your cat, though.");
+	}
+	public async Task Tree()
+	{
+		await ST(cat + " acted more like a dog than a cat sometimes; " + pronoun1 + " didn't like climbing trees but loved chasing squirrles.");
+		await ST(cat + " was usually lazy and would stop at the base of the tree and meow when the squirrel climbed up.");
+		await ST("But maybe " + cat + " was determined enough this time and climbed the tree. Or maybe there was a squirrel up there that could lure " + pronoun1 + " back home.");
+		await ST("You are worrying about how to catch a squirrel to attract " + cat + " with, but turns out you don't have to worry.");
+		await ST("There are no squirrels in the tree, and " + cat + " isn't there either.");
+	}
+	public async Task Fountain()
+	{
+		await ST("You approach the fountain, hiding exhaustion behind a bundle of anxiety. You dip your hand into the cool water and watch as water droplets roll off your fingers.");
+		await ST("Something about this place, this fountain, reminds you of " + cat + ". What was it, though? " + cat + " hated water, after all.");
+	}
+	
+	//forest
+	public async Task NoBowBush()
+	{
+		await ST("You look carefully through bushes, searching for hints that " + cat + " has been here.");
+		await ST("You gently part the leaves and branches, but see no flash of color other than the orange and brown of the leaves.");
+		await ST("You: If the bow was orange, it might've blended in...");
 	}
 }
