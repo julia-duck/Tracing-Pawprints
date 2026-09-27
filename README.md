@@ -1,5 +1,5 @@
 # 🍂 Tracing Pawprints
-A short game about finding a lost cat through memories of past connections. Made for the Cozy Fall Jam 2026!
+A short point-and-click adventure game about finding a lost cat through memories of past connections. Made for the Cozy Fall Jam 2026!
 
 # Play the Game
 Play the game here: [https://amethystjewelia.itch.io/tracing-pawprints](url)
@@ -19,7 +19,7 @@ Story and dialogue by: Kimeowsu, amethystjewelia
 Programming by: grassinabox, amethystjewelia
 
 Made using Godot
-	Exported to web with 2dog
+- Exported to web with 2dog ([2dog.dev](url))
 
 Art made using ibisPaint
 
