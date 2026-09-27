@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cqf5o2vduk83q" path="res://assets/eat_grass_cutscene.png" id="3_gtx3x"]
 [ext_resource type="Texture2D" uid="uid://te3w5y3oxti" path="res://assets/bow_cutscene.png" id="4_b05li"]
 [ext_resource type="Texture2D" uid="uid://c4skjb30g1isj" path="res://assets/reunion_cutscene.png" id="5_b05li"]
+[ext_resource type="Texture2D" uid="uid://mvq4frnbq671" path="res://assets/arrow.png" id="6_p8nh0"]
 
 [node name="Camera" type="Camera2D" unique_id=310866334]
 script = ExtResource("1_cvpoc")
@@ -24,3 +25,12 @@ texture = ExtResource("5_b05li")
 [node name="TextBox" parent="." unique_id=1844752775 instance=ExtResource("2_kod1s")]
 visible = false
 position = Vector2(-930, 510)
+
+[node name="LeftArrow" type="Sprite2D" parent="." unique_id=2144570058]
+position = Vector2(-860, 0)
+texture = ExtResource("6_p8nh0")
+
+[node name="RightArrow" type="Sprite2D" parent="." unique_id=1886858927]
+position = Vector2(860, 0)
+texture = ExtResource("6_p8nh0")
+flip_h = true

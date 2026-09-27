@@ -54,8 +54,8 @@ public partial class TextBox : Node2D
 		await ST("You gulp, stifling an anxious sob. You wonder if you should put up posters and sit back waiting or look for " + cat + " yourself.");
 		await ST("Suddenly, a memory threads through your mind.");
 		await ST("The memory is from last fall. You are holding " + cat + " and going to visit your neighbor.");
-		await ST(cat + " meows in protest but calms when set down. While you chat with the neighbor about an autumn gathering, " + cat + " spots a yellow flannel shirt.");
-		await ST("You and your neighbor watch in amusement as " + cat + " snuggles into the shirt, falling fast asleep.");
+		await ST(cat + " meows in protest but calms when set down. While you chat with the neighbor about an autumn gathering, " + cat + " spots a red sweater.");
+		await ST("You and your neighbor watch in amusement as " + cat + " snuggles into the sweater, falling fast asleep.");
 		await ST("You: I have to get " + cat + " back. And I know where to look first.");
 	}
 	
@@ -70,6 +70,7 @@ public partial class TextBox : Node2D
 		await ST("Marcy: Wait, my red sweater is missing!");
 		await ST("Your heart pounds with renewed hope.");
 		await ST("You: " + cat + " must have passed through here! Maybe there's something else here that will help me find " + pronoun2 + "!");
+		camera.SetLeftLimit();
 	}
 	
 	public async Task FountainGrassScene()
@@ -83,6 +84,7 @@ public partial class TextBox : Node2D
 		await ST("You have no idea why, but " + cat + " kept trying to eat the grass.");
 		await ST("You wondered why the grass tasted good to " + cat + ", but you didn't dare try it yourself.");
 		camera.ToggleImage("Grass", false);
+		camera.SetLeftLimit();
 	}
 	
 	public async Task BowtieShopOwnerScene()
@@ -97,6 +99,7 @@ public partial class TextBox : Node2D
 		await ST("You: Where were you walking when you lost your bowtie?");
 		await ST("The shop owner indicates towards the forest nearby.");
 		await ST("You: Thank you! I'll let you know if I find your bowtie---and my cat.");
+		camera.SetLeftLimit();
 	}
 	
 	public async Task BushBowtieScene()
@@ -106,6 +109,7 @@ public partial class TextBox : Node2D
 		await ST("Suddenly, you find a bowtie in one of the bushes!");
 		await ST("You: Did that Bowtie shop owner drop it in here...?");
 		await ST("You: Or did " + cat + " steal it and put it in the bush?");
+		camera.SetLeftLimit();
 	}
 	
 	public async Task ReunionScene()

@@ -17,11 +17,12 @@ centered = false
 position = Vector2(-63, -58)
 
 [node name="Camera" parent="." unique_id=310866334 instance=ExtResource("4_qm7rg")]
-position = Vector2(4240, 540)
+position = Vector2(4200, 540)
 
 [node name="DoorInteract" parent="." unique_id=1136881088 instance=ExtResource("5_0nboi")]
 position = Vector2(4460.0005, 603)
 scale = Vector2(1.3, 1.5)
+IconNumber = 1
 
 [node name="BowBushInteract" parent="." unique_id=397099713 instance=ExtResource("5_0nboi")]
 position = Vector2(2284, 404)

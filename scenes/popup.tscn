@@ -12,9 +12,9 @@ default_font_size = 40
 Window/styles/embedded_border = SubResource("StyleBoxFlat_cpc1a")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvnu6"]
-bg_color = Color(0.68664795, 0.5857146, 0.4005, 1)
+bg_color = Color(0.54, 0.45495, 0.29700002, 1)
 border_width_bottom = 5
-border_color = Color(0.6862745, 0.58431375, 0.4, 1)
+border_color = Color(0.5372549, 0.44705883, 0.28235295, 1)
 
 [node name="Popup" type="CanvasLayer" unique_id=122372514]
 script = ExtResource("1_4ebxx")

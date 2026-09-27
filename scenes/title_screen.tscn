@@ -1,18 +1,40 @@
 [gd_scene format=3 uid="uid://d1afynnpocwwv"]
 
 [ext_resource type="Script" uid="uid://kyns72h121mm" path="res://scripts/TitleScreen.cs" id="1_fgkus"]
+[ext_resource type="Texture2D" uid="uid://bnig27ttbx14b" path="res://assets/title_screen.png" id="2_s4lrb"]
 [ext_resource type="PackedScene" uid="uid://d0jj1bb0qe24b" path="res://scenes/camera.tscn" id="2_sa3yf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4lrb"]
+bg_color = Color(0.47843137, 0.29803923, 0.05882353, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgrm8"]
+bg_color = Color(0.27, 0.16704, 0.0324, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="TitleScreen" type="Node2D" unique_id=1260470973]
 script = ExtResource("1_fgkus")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=21244582]
+texture = ExtResource("2_s4lrb")
+centered = false
+
 [node name="StartButton" type="Button" parent="." unique_id=1990208953]
-offset_left = 772.0
-offset_top = 209.0
-offset_right = 1640.0
-offset_bottom = 506.0
+offset_left = 660.0
+offset_top = 750.0
+offset_right = 1260.0
+offset_bottom = 950.0
 theme_override_font_sizes/font_size = 100
-text = "Start"
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mgrm8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mgrm8")
+text = "Play"
 
 [node name="Camera" parent="." unique_id=310866334 instance=ExtResource("2_sa3yf")]
 position = Vector2(960, 540)

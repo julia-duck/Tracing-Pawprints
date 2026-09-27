@@ -4,3 +4,4 @@
 
 [node name="Icon" type="Sprite2D" unique_id=325734394]
 texture = ExtResource("1_h6rt1")
+hframes = 2
