@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d0jj1bb0qe24b" path="res://scenes/camera.tscn" id="2_f2a5t"]
 [ext_resource type="Texture2D" uid="uid://dr1hvujqnlbfo" path="res://assets/town_background_1.png" id="2_t6cq8"]
 [ext_resource type="Texture2D" uid="uid://ds1rk5p0aai36" path="res://assets/town_background_2.png" id="3_cq4yp"]
+[ext_resource type="Texture2D" uid="uid://ixcqdon1d5xa" path="res://assets/fishing_rod.png" id="4_cq4yp"]
 [ext_resource type="PackedScene" uid="uid://04e1j0o480n1" path="res://scenes/icon.tscn" id="4_eruj1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jif1a"]
@@ -29,6 +30,12 @@ sprite_frames = SubResource("SpriteFrames_jif1a")
 autoplay = "default"
 centered = false
 
+[node name="FishingRod" type="Sprite2D" parent="." unique_id=120868858]
+texture = ExtResource("4_cq4yp")
+centered = false
+hframes = 2
+frame = 1
+
 [node name="Camera" parent="." unique_id=310866334 instance=ExtResource("2_f2a5t")]
 position = Vector2(2340, 540)
 Speed = 500
@@ -51,8 +58,8 @@ position = Vector2(1364.0001, 443.00003)
 scale = Vector2(0.9, 0.9)
 
 [node name="GrassInteract4" parent="." unique_id=1857256821 instance=ExtResource("1_ms2es")]
-position = Vector2(1137, 319.00003)
-scale = Vector2(0.9, 0.9)
+position = Vector2(1120, 303)
+scale = Vector2(0.8, 0.9)
 
 [node name="GrassInteract5" parent="." unique_id=1589615697 instance=ExtResource("1_ms2es")]
 position = Vector2(950, 192)
@@ -69,6 +76,10 @@ scale = Vector2(0.9, 0.9)
 [node name="GrassInteract8" parent="." unique_id=265869773 instance=ExtResource("1_ms2es")]
 position = Vector2(234, 225.00002)
 scale = Vector2(1.2, 0.9)
+
+[node name="FishingInteract" parent="." unique_id=225480268 instance=ExtResource("1_ms2es")]
+position = Vector2(1271, 287)
+scale = Vector2(1, 0.8)
 
 [node name="Icon" parent="." unique_id=325734394 instance=ExtResource("4_eruj1")]
 position = Vector2(-109, -101)
