@@ -18,18 +18,6 @@ public partial class Town : Node2D
 	}
 	public override void _Process(double delta)
 	{
-		/*switch (StateData.CurrentMemory)
-		{
-			case "Neighbor": ToggleArea1(false);
-							 ToggleArea2(true);
-							 break;
-			case "FountainGrass": ToggleArea1(true);
-								  ToggleArea2(false);
-								  break;
-			default: ToggleArea1(true);
-					 ToggleArea2(true);
-					 break;
-		}*/
 	}
 	
 	public void RefreshAreas()

@@ -20,23 +20,44 @@ public partial class Forest : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		switch (StateData.CurrentMemory) {
-			case "Bowties": door.SetDisabled(false);
-							bush.SetDisabled(true);
-							clearing.SetDisabled(true);
+	}
+	
+	public void ToggleArea1(bool disabled)
+	{
+		door.SetDisabled(disabled);
+	}
+	public void ToggleArea2(bool disabled)
+	{
+		bush.SetDisabled(disabled);
+		GetNode<InteractArea>("NoBowBush1").SetDisabled(disabled);
+		GetNode<InteractArea>("NoBowBush2").SetDisabled(disabled);
+		GetNode<InteractArea>("NoBowBush3").SetDisabled(disabled);
+	}
+	public void ToggleArea3(bool disabled)
+	{
+		clearing.SetDisabled(disabled);
+	}
+	
+	public void RefreshAreas()
+	{
+		switch (StateData.CurrentMemory)
+		{
+			case "Bowties": ToggleArea1(false);
+							ToggleArea2(true);
+							ToggleArea3(true);
 							break;
-			case "BushBowtie": bush.SetDisabled(false);
-								door.SetDisabled(true);
-								clearing.SetDisabled(true);
-								break;
-			case "Reunion": clearing.SetDisabled(false);
-							door.SetDisabled(true);
-							bush.SetDisabled(true);
+			case "BushBowtie": ToggleArea1(true);
+							ToggleArea2(false);
+							ToggleArea3(true);
 							break;
-			default: door.SetDisabled(true);
-					bush.SetDisabled(true);
-					clearing.SetDisabled(true);
-					break;
+			case "Reunion": ToggleArea1(true);
+							ToggleArea2(true);
+							ToggleArea3(false);
+							break;
+			default: ToggleArea1(true);
+					 ToggleArea2(true);
+					ToggleArea3(true);
+					 break;
 		}
 	}
 
@@ -44,6 +65,7 @@ public partial class Forest : Node2D
 	{
 		trigger.SetDisabled(true);
 		await Text.BowtieShopOwnerScene();
+		RefreshAreas();
 		//=trigger.SetDisabled(false);
 	}
 
@@ -51,6 +73,7 @@ public partial class Forest : Node2D
 	{
 		 trigger.SetDisabled(true);
 		await Text.BushBowtieScene();
+		RefreshAreas();
 		// //=trigger.SetDisabled(false);
 	}
 
@@ -58,6 +81,13 @@ public partial class Forest : Node2D
 	{
 		trigger.SetDisabled(true);
 		await Text.ReunionScene();
+		RefreshAreas();
 		//=trigger.SetDisabled(false);
+	}
+	
+	private async void OnNoBowBushInteract(InteractArea trigger)
+	{
+		trigger.SetDisabled(true);
+		await Text.NoBowBush();
 	}
 }

@@ -158,4 +158,12 @@ public partial class TextBox : Node2D
 		await ST("You approach the fountain, hiding exhaustion behind a bundle of anxiety. You dip your hand into the cool water and watch as water droplets roll off your fingers.");
 		await ST("Something about this place, this fountain, reminds you of " + cat + ". What was it, though? " + cat + " hated water, after all.");
 	}
+	
+	//forest
+	public async Task NoBowBush()
+	{
+		await ST("You look carefully through bushes, searching for hints that " + cat + " has been here.");
+		await ST("You gently part the leaves and branches, but see no flash of color other than the orange and brown of the leaves.");
+		await ST("You: If the bow was orange, it might've blended in...");
+	}
 }

@@ -3,7 +3,7 @@ using System;
 
 public partial class StateData : Node
 {
-	public static string CurrentMemory = "Neighbor";
+	public static string CurrentMemory = "Bowties";
 	/*
 	1. Neighbor
 	2. FountainGrass
