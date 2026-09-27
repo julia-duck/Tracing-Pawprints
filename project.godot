@@ -42,7 +42,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://.godot/scenetime/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://.godot/scenetime/plugin.cfg")
 
 [gui]
 
