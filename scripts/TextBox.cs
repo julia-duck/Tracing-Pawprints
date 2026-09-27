@@ -55,7 +55,6 @@ public partial class TextBox : Node2D
 		await ST("It feels like forever ago since you held your cat in your arms, even though your cat only disappeared this morning.");
 		await ST("You gulp, stifling an anxious sob. You wonder if you should put up posters and sit back waiting or look for your cat yourself.");
 		await ST("Suddenly, a memory threads through your mind.");
-		music.Play();
 		camera.ToggleImage("Sweater", true);
 		SetTopPosition(true);
 		await ST("The memory is from last fall. You are holding your cat and going to visit your neighbor.");
@@ -63,10 +62,12 @@ public partial class TextBox : Node2D
 		await ST("You and your neighbor watch in amusement as your cat snuggles into the sweater, falling fast asleep.");
 		await ST("You: I have to get my cat back. And I know where to look first.");
 		SetTopPosition(false);
+		music.Play();
 	}
 	
 	public async Task NeighborScene()
 	{
+		camera.MovementEnabled = false;
 		StateData.CurrentMemory = "FountainGrass";
 		await ST("Neighbor: Well, hello! What brings you here, dear? Where's your sweet sweet kitty?");
 		await ST("You: Hi, Marcy. I've lost " + cat + ". " + pronoun1 + " escaped this morning and I was wondering if you saw " + pronoun2 + ".");
@@ -76,12 +77,14 @@ public partial class TextBox : Node2D
 		await ST("Marcy: Wait, my red sweater is missing!");
 		await ST("Your heart pounds with renewed hope.");
 		await ST("You: " + cat + " might have passed through here and taken it! Maybe there's something else here that will help me find " + pronoun2 + "!");
-		await ST("*Use arrow keys to look around.");
+		await ST("*Use arrow keys to explore.");
+		camera.MovementEnabled = true;
 		camera.SetLeftLimit();
 	}
 	
 	public async Task FountainGrassScene()
 	{
+		camera.MovementEnabled = false;
 		StateData.CurrentMemory = "Bowties";
 		await ST("You: Hmm, that's interesting. Some of the grass seems to be shorter here.");
 		await ST("Suddenly, you become very still as another memory hits you. It is hazy at first but begins to solidify.");
@@ -97,6 +100,8 @@ public partial class TextBox : Node2D
 		{
 			camera.Position = new Vector2(1000, 540);
 		}
+		await ST("The grass does look somewhat eaten here... Maybe " + cat + " came by!");
+		camera.MovementEnabled = true;
 		camera.SetLeftLimit();
 	}
 
@@ -107,6 +112,7 @@ public partial class TextBox : Node2D
 	
 	public async Task BowtieShopOwnerScene()
 	{
+		camera.MovementEnabled = false;
 		StateData.CurrentMemory = "BushBowtie";
 		SetTopPosition(true);
 		await ST("You: Hello. I've lost my cat, and I think " + pronoun1 + " went this way. Have you seen " + pronoun2 + "?");
@@ -120,23 +126,27 @@ public partial class TextBox : Node2D
 		await ST("You: Where were you walking when you lost your bowtie?");
 		await ST("The shop owner indicates towards the forest nearby.");
 		await ST("You: Thank you! I'll let you know if I find your bowtie---and my cat.");
+		camera.MovementEnabled = true;
 		camera.SetLeftLimit();
 		SetTopPosition(false);
 	}
 	
 	public async Task BushBowtieScene()
 	{
+		camera.MovementEnabled = false;
 		StateData.CurrentMemory = "Reunion";
 		await ST("You look carefully through bushes, searching for hints that " + cat + " has been here.");
 		await ST("Suddenly, you find a bowtie in one of the bushes!");
 		GetParent().GetParent().GetNode<Node2D>("Bowtie").Show();
 		await ST("You: Did that Bowtie shop owner drop it in here...?");
 		await ST("You: Or did " + cat + " steal it and put it in the bush?");
+		camera.MovementEnabled = true;
 		camera.SetLeftLimit();
 	}
 	
 	public async Task ReunionScene()
 	{
+		camera.MovementEnabled = false;
 		StateData.CurrentMemory = "End";
 		camera.ToggleImage("Reunion", true);
 		SetTopPosition(true);
@@ -152,6 +162,7 @@ public partial class TextBox : Node2D
 		camera.ToggleImage("Reunion", false);
 		SetTopPosition(false);
 		await ST("THE END!! Thank you for playing!");
+		camera.MovementEnabled = true;
 	}
 	
 	//not main storyline

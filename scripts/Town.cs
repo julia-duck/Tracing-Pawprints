@@ -39,7 +39,7 @@ public partial class Town : Node2D
 	public async void DisplayIntroInstructions()
 	{
 		await ToSignal(nameCat, Popup.SignalName.PopupConfirmed);
-		await text.ST("Use mouse to look around.");
+		await text.ST("*Use mouse to look around.");
 	}
 	
 	public void RefreshAreas()
@@ -125,7 +125,7 @@ public partial class Town : Node2D
 			var icon = GetNode<Sprite2D>("FishingIcon");
 			icon.Frame = 1;
 			icon.Show();
-			var time = GD.RandRange(0.0, 5.0);
+			var time = GD.RandRange(0.5, 6.0);
 			await ToSignal(GetTree().CreateTimer((float) time), SceneTreeTimer.SignalName.Timeout);
 			icon.Frame = 0;
 			await ToSignal(this, SignalName.GetFish);

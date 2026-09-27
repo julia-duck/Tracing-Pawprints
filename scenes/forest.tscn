@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0jj1bb0qe24b" path="res://scenes/camera.tscn" id="4_qm7rg"]
 [ext_resource type="PackedScene" uid="uid://bgksa2kb17a54" path="res://scenes/interact_area.tscn" id="5_0nboi"]
 [ext_resource type="Texture2D" uid="uid://7iu668ax8rw3" path="res://assets/bowtie.png" id="6_sek5r"]
+[ext_resource type="Texture2D" uid="uid://c58eqws4wpo7e" path="res://assets/sparkles.png" id="7_0nboi"]
 [ext_resource type="Texture2D" uid="uid://8m3xeg1b8uak" path="res://assets/shopkeep.png" id="7_i1yi8"]
 [ext_resource type="Texture2D" uid="uid://bv5lge5vvuwgo" path="res://assets/weom.jpeg" id="8_qm7rg"]
 
@@ -95,6 +96,28 @@ _data = {
 &"weom": SubResource("Animation_3knxq")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3knxq"]
+atlas = ExtResource("7_0nboi")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ercsu"]
+atlas = ExtResource("7_0nboi")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qm7rg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3knxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ercsu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
 [node name="Forest" type="Node2D" unique_id=698212484]
 script = ExtResource("1_xr56k")
 
@@ -144,6 +167,12 @@ texture = ExtResource("7_i1yi8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1396820856]
 libraries/ = SubResource("AnimationLibrary_ercsu")
+
+[node name="Sparkles" type="AnimatedSprite2D" parent="." unique_id=1201403771]
+position = Vector2(731, 604)
+sprite_frames = SubResource("SpriteFrames_qm7rg")
+autoplay = "default"
+frame_progress = 0.17070262
 
 [node name="Camera" parent="." unique_id=310866334 instance=ExtResource("4_qm7rg")]
 position = Vector2(4200, 540)

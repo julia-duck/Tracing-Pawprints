@@ -83,6 +83,7 @@ public partial class Forest : Node2D
 	{
 		trigger.SetDisabled(true);
 		await Text.ReunionScene();
+		GetNode<Node2D>("Sparkles").Hide();
 		RefreshAreas();
 	}
 	
