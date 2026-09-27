@@ -38,7 +38,7 @@ position = Vector2(2051, 435)
 scale = Vector2(1, 1.3)
 IconNumber = 1
 
-[node name="GrassInteract" parent="." unique_id=1136881088 instance=ExtResource("1_ms2es")]
+[node name="GrassInteract1" parent="." unique_id=1136881088 instance=ExtResource("1_ms2es")]
 position = Vector2(1464, 841)
 scale = Vector2(1.3, 1)
 
@@ -89,7 +89,7 @@ position = Vector2(1630, 400)
 scale = Vector2(2, 1.2)
 
 [connection signal="Clicked" from="NeighborDoor" to="." method="OnNeighborInteract"]
-[connection signal="Clicked" from="GrassInteract" to="." method="OnGrassInteract"]
+[connection signal="Clicked" from="GrassInteract1" to="." method="OnGrassInteract"]
 [connection signal="Clicked" from="GrassInteract2" to="." method="OnGrassInteract"]
 [connection signal="Clicked" from="GrassInteract3" to="." method="OnGrassInteract"]
 [connection signal="Clicked" from="GrassInteract4" to="." method="OnGrassInteract"]

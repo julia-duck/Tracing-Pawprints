@@ -1,18 +1,22 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Town : Node2D
 {
 	private TextBox text;
-	private InteractArea grass1;
-	private InteractArea grass2;
+	private Godot.Collections.Array<InteractArea> grasses;
 	private InteractArea door;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		text = GetNode<Camera2D>("Camera").GetNode<TextBox>("TextBox");
-		grass1 = GetNode<InteractArea>("GrassInteract");
-		grass2 = GetNode<InteractArea>("GrassInteract2");
+		grasses = new Godot.Collections.Array<InteractArea>();
+		for (int i = 1; i <= 8; i ++)
+		{
+			var grass = GetNode<InteractArea>("GrassInteract" + i);
+			grasses.Add(grass);
+		}
 		door = GetNode<InteractArea>("NeighborDoor");
 		RefreshAreas();
 	}
@@ -44,16 +48,11 @@ public partial class Town : Node2D
 		GetNode<InteractArea>("Tree").SetDisabled(toggle);
 	}
 	public void ToggleArea2(bool toggle) {
-		grass1.SetDisabled(toggle);
-		grass2.SetDisabled(toggle);
+		for (int i = 0; i < 7; i ++)
+		{
+			grasses[0].SetDisabled(true);
+		}
 		GetNode<InteractArea>("Fountain").SetDisabled(toggle);
-	}
-	
-	public async void StartDialogue()
-	{
-		// await text.IntroScene();
-		// await text.FountainGrassScene();
-		// await text.BowtieShopOwnerScene();
 	}
 	
 	public async void OnNeighborInteract(InteractArea trigger)
@@ -61,7 +60,6 @@ public partial class Town : Node2D
 		trigger.SetDisabled(true);
 		await text.NeighborScene();
 		RefreshAreas();
-		//= trigger.SetDisabled(false);
 	}
 
 	public async void OnGrassInteract(InteractArea trigger)
@@ -69,7 +67,6 @@ public partial class Town : Node2D
 		trigger.SetDisabled(true);
 		await text.FountainGrassScene();
 		RefreshAreas();
-		//= trigger.SetDisabled(false);
 	}
 	
 	public async void OnYellowInteract(InteractArea trigger) 

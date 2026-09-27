@@ -19,6 +19,10 @@ public partial class Camera : Camera2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		if (AllowTransition)
+		{
+			Position = new Vector2(40, 540);
+		}
 		xRightLimit = 2340;
 		MovementEnabled = true;
 		Velocity = Vector2.Zero;
@@ -85,7 +89,6 @@ public partial class Camera : Camera2D
 		else
 		{
 			GetTree().ChangeSceneToFile("res://scenes/town.tscn");
-			GlobalPosition = new Vector2(40, 540);
 		}
 	}
 
@@ -115,8 +118,8 @@ public partial class Camera : Camera2D
 		}
 		
 		//arrows
-		if (Velocity != Vector2.Zero)
-		{
+		// if (Velocity != Vector2.Zero)
+		// {
 			if (GlobalPosition.X == xLeftLimit || !MovementEnabled)
 			{
 				LeftArrow.Hide();
@@ -133,7 +136,7 @@ public partial class Camera : Camera2D
 			{
 				RightArrow.Show();
 			}
-		}
+		// }
 
 		//transition
 		if (GlobalPosition.X <= 960 && AllowTransition && RoomName == "Town")
