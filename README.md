@@ -25,5 +25,5 @@ Art made using ibisPaint
 
 Music made using Flat
 
-Special Thanks: Hack Club
+Special Thanks: Hack Club and jame gam!
 	
