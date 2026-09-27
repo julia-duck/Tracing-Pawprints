@@ -9,12 +9,15 @@ public partial class Town : Node2D
 	private TextBox text;
 	private Godot.Collections.Array<InteractArea> grasses;
 	private InteractArea door;
+	private Popup nameCat;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		nameCat = GetNode<Popup>("/root/PopupGlobal");
 		if (StateData.FirstStartGame) {
 			StateData.FirstStartGame = false;
-			GetNode<Popup>("/root/PopupGlobal").ShowPopup();
+			nameCat.ShowPopup();
+			DisplayIntroInstructions();
 		}
 		text = GetNode<Camera2D>("Camera").GetNode<TextBox>("TextBox");
 		grasses = new Godot.Collections.Array<InteractArea>();
@@ -32,6 +35,11 @@ public partial class Town : Node2D
 		{
 			EmitSignal(SignalName.GetFish);
 		}
+	}
+	public async void DisplayIntroInstructions()
+	{
+		await ToSignal(nameCat, Popup.SignalName.PopupConfirmed);
+		await text.ST("Use mouse to look around.");
 	}
 	
 	public void RefreshAreas()

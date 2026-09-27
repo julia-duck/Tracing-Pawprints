@@ -15,6 +15,7 @@ public partial class Forest : Node2D
 		door = GetNode<InteractArea>("DoorInteract");
 		bush = GetNode<InteractArea>("BowBushInteract");
 		clearing = GetNode<InteractArea>("ClearingInteract");
+		RefreshAreas();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
