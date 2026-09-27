@@ -42,7 +42,7 @@ public partial class Camera : Camera2D
 			if (StateData.CurrentMemory == "Neighbor") {
 				moveLeft = false;
 			}
-			else if (StateData.CurrentMemory == "FountainGrass") {
+			else {
 				moveLeft = true;
 			}
 		}

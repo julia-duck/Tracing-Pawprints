@@ -32,6 +32,25 @@ scale = Vector2(1.2, 1)
 [node name="Icon" parent="." unique_id=325734394 instance=ExtResource("4_eruj1")]
 position = Vector2(-40, -40)
 
+[node name="YellowHouseDoor" parent="." unique_id=760068018 instance=ExtResource("1_ms2es")]
+position = Vector2(2600, 200)
+scale = Vector2(1, 1.1)
+
+[node name="Fountain" parent="." unique_id=1803337562 instance=ExtResource("1_ms2es")]
+position = Vector2(650, 500)
+scale = Vector2(5, 3)
+
+[node name="OrangeHouseDoor" parent="." unique_id=389358708 instance=ExtResource("1_ms2es")]
+position = Vector2(2700, 900)
+
+[node name="Tree" parent="." unique_id=148695838 instance=ExtResource("1_ms2es")]
+position = Vector2(1630, 400)
+scale = Vector2(2, 1.2)
+
 [connection signal="Clicked" from="NeighborDoor" to="." method="OnNeighborInteract"]
 [connection signal="Clicked" from="GrassInteract" to="." method="OnGrassInteract"]
 [connection signal="Clicked" from="GrassInteract2" to="." method="OnGrassInteract"]
+[connection signal="Clicked" from="YellowHouseDoor" to="." method="OnYellowInteract"]
+[connection signal="Clicked" from="Fountain" to="." method="OnFountainInteract"]
+[connection signal="Clicked" from="OrangeHouseDoor" to="." method="OnOrangeInteract"]
+[connection signal="Clicked" from="Tree" to="." method="OnTreeInteract"]
